@@ -1,5 +1,4 @@
 
-Livraria
 <h2>AULAS 25 - Revisão Back-Eng Java</h2>
 <h4><p>Atividade realizada com o intuito de revisar o conteúdo adquirido durante as aulas.</p></h4>
 <p>Back-Eng Java + JDBC/MySQL + MVC.</p>

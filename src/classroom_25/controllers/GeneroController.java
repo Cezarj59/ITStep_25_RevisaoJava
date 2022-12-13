@@ -8,33 +8,7 @@ import java.sql.*;
 
 public class GeneroController {
 
-    public static ArrayList<Genero> getAll() {
-        ArrayList<Genero> lista = new ArrayList<Genero>();
-        Connection conn = BancoDados.conectar();
-
-        try {
-            String sql = "SELECT * FROM genero";
-            Statement statement = conn.createStatement();
-
-            ResultSet resultado = statement.executeQuery(sql);
-
-            while (resultado.next()) {
-                lista.add(new Genero(
-                        resultado.getInt("id"),
-                        resultado.getString("nome")
-                ));
-
-            }
-
-        } catch (SQLException e) {
-            System.out.println("ERRO AO BUSCAR: " + e);
-        }
-
-        BancoDados.fecha(conn);
-
-        return lista;
-    }
-
+   
     public static Genero cadastrar() {
         System.out.println("\nCADASTRAR NOVO GÊNERO\n");
         System.out.println("Innforme o novo gênero: ");
@@ -64,4 +38,32 @@ public class GeneroController {
         BancoDados.fecha(conn);
 
     }
+    
+     public static ArrayList<Genero> getAll() {
+        ArrayList<Genero> lista = new ArrayList<Genero>();
+        Connection conn = BancoDados.conectar();
+
+        try {
+            String sql = "SELECT * FROM genero";
+            Statement statement = conn.createStatement();
+
+            ResultSet resultado = statement.executeQuery(sql);
+
+            while (resultado.next()) {
+                lista.add(new Genero(
+                        resultado.getInt("id"),
+                        resultado.getString("nome")
+                ));
+
+            }
+
+        } catch (SQLException e) {
+            System.out.println("ERRO AO BUSCAR: " + e);
+        }
+
+        BancoDados.fecha(conn);
+
+        return lista;
+    }
+
 }

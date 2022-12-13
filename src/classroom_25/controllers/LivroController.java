@@ -9,6 +9,58 @@ import java.sql.*;
 
 public class LivroController {
 
+    public static Livro cadastrar() {
+        Livro l = new Livro();
+        System.out.println("\n----------CADASTRAR NOVO LIVRO----------\n");
+
+        System.out.print("Informe o título: ");
+        l.setTitulo(Receber.texto());
+
+        System.out.println("Gêneros: ");
+        ArrayList<Genero> lista = GeneroController.getAll();
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println("(" + (i + 1) + ") " + lista.get(i).getNome());
+        }
+
+        System.out.println("Informe o número referente ao gênero: ");
+        l.setIdGenero(Receber.inteiro());
+
+        System.out.print("Autor(es): ");
+        l.setAutor(Receber.texto());
+
+        System.out.print("Preço: ");
+        l.setPreco(Receber.numeroDecimal());
+
+        return l;
+    }
+
+    public static void addLivro(Livro g) {
+        Connection conn = BancoDados.conectar();
+
+        try {
+            String sql = "INSERT INTO livro (titulo,idgenero,autor,preco) VALUES (?,?,?,?)";
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+
+            statement.setString(1, g.getTitulo());
+            statement.setInt(2, g.getIdGenero());
+            statement.setString(3, g.getAutor());
+            statement.setDouble(4, g.getPreco());
+
+            if (statement.executeUpdate() > 0) {
+                System.out.println("\nLivro Cadastrado com Sucesso!!!\n");
+            } else {
+                System.out.println("\nFalha ao Cadastrar o Livro!!!\n");
+            }
+
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+
+        BancoDados.fecha(conn);
+
+    }
+
     public static ArrayList<Livro> getAll() {
         ArrayList<Livro> lista = new ArrayList<Livro>();
 
@@ -46,57 +98,5 @@ public class LivroController {
         BancoDados.fecha(conn);
 
         return lista;
-    }
-
-    public static Livro cadastrar() {
-        Livro l = new Livro();
-        System.out.println("\nCADASTRAR NOVO LIVRO\n");
-
-        System.out.println("Innforme o título: ");
-        l.setTitulo(Receber.texto());
-
-        System.out.println("Gêneros: ");
-        ArrayList<Genero> lista = GeneroController.getAll();
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println("(" + (i + 1) + ") " + lista.get(i).getNome());
-        }
-
-        System.out.println("Informe o número referente ao gênero: ");
-        l.setIdGenero(Receber.inteiro());
-
-        System.out.println("Autor(es): ");
-        l.setAutor(Receber.texto());
-
-        System.out.println("Preço: ");
-        l.setPreco(Receber.numeroDecimal());
-
-        return l;
-    }
-
-    public static void addLivro(Livro g) {
-        Connection conn = BancoDados.conectar();
-
-        try {
-            String sql = "INSERT INTO livro (titulo,idgenero,auto,preco) VALUES (?,?,?,?)";
-
-            PreparedStatement statement = conn.prepareStatement(sql);
-
-            statement.setString(1, g.getTitulo());
-            statement.setInt(2, g.getIdGenero());
-            statement.setString(3, g.getAutor());
-            statement.setDouble(4, g.getPreco());
-
-            if (statement.executeUpdate() > 0) {
-                System.out.println("\nLivro Cadastrado com Sucesso!!!\n");
-            } else {
-                System.out.println("\nFalha ao Cadastrar o Livro!!!\n");
-            }
-
-        } catch (SQLException e) {
-            System.err.println(e);
-        }
-
-        BancoDados.fecha(conn);
-
     }
 }

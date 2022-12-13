@@ -1,10 +1,8 @@
 package classroom_25.views;
 
-import classroom_25.controllers.GeneroController;
-import classroom_25.controllers.LivroController;
-import classroom_25.models.Genero;
-import classroom_25.models.Livro;
-import classroom_25.services.Receber;
+import classroom_25.controllers.*;
+import classroom_25.models.*;
+import classroom_25.services.*;
 import java.util.ArrayList;
 
 class Menu {
@@ -44,7 +42,8 @@ class Menu {
         System.out.println("-----------------------------\n");
 
         System.out.println("(1) Livro");
-        System.out.println("(2) Generor");
+        System.out.println("(2) Genero");
+        System.out.println("(3) Cliente");
         System.out.print("Informe a opção desejada: ");
 
         switch (Receber.inteiro()) {
@@ -54,6 +53,9 @@ class Menu {
                 break;
             case 2:
                 GeneroController.addGenero(GeneroController.cadastrar());
+                break;
+            case 3:
+                ClienteController.addCliente(ClienteController.cadastrar());
                 break;
             default:
                 System.out.println("\nOpção Invalida!!!\n");
@@ -67,23 +69,20 @@ class Menu {
         System.out.println("-----------------------------\n");
 
         System.out.println("(1) Livro");
-        System.out.println("(2) Generor");
+        System.out.println("(2) Genero");
+        System.out.println("(3) Cliente");
         System.out.print("Informe a opção desejada: ");
 
         switch (Receber.inteiro()) {
 
             case 1:
                 ArrayList<Livro> livros = LivroController.getAll();
-                System.out.println("----------Livros-----------");
+                System.out.println("\n----------Livros-----------");
                 if (livros.isEmpty()) {
                     System.out.println("\nNão há Livros Cadastrados!!!\n");
                 } else {
                     for (Livro l : livros) {
-                        System.out.println("ID: " + l.getIdLivro());
-                        System.out.println("Título: " + l.getTitulo());
-                        System.out.println("Gênero: " + l.getGenero());
-                        System.out.println("Autor(es): " + l.getAutor());
-                        System.out.println("Preço: " + l.getPreco());
+                        System.out.println(l.toString());
                         System.out.println("-----------------------------\n");
 
                     }
@@ -91,19 +90,30 @@ class Menu {
                 break;
             case 2:
                 ArrayList<Genero> genero = GeneroController.getAll();
-                System.out.println("----------Livros-----------");
+                System.out.println("\n----------Gênero-----------");
                 if (genero.isEmpty()) {
-                    System.out.println("\nNão há Livros Cadastrados!!!\n");
+                    System.out.println("\nNão há Gêneros Cadastrados!!!\n");
                 } else {
                     for (Genero g : genero) {
-                        System.out.println("ID: " + g.getId());
-                        System.out.println("Título: " + g.getNome());
-
+                        System.out.println(g.toString());
+                        System.out.println("-----------------------------\n");
+                    }
+                }
+                break;
+            case 3:
+                ArrayList<Cliente> cliente = ClienteController.getAll();
+                System.out.println("\n----------Clientes-----------");
+                if (cliente.isEmpty()) {
+                    System.out.println("\nNão há Clientes Cadastrados!!!\n");
+                } else {
+                    for (Cliente c : cliente) {
+                        System.out.println(c.toString());
                         System.out.println("-----------------------------\n");
 
                     }
                 }
                 break;
+
             default:
                 System.out.println("\nOpção Invalida!!!\n");
                 ;

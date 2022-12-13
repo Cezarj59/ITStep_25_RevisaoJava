@@ -12,3 +12,11 @@ CREATE TABLE livro(
     CONSTRAINT FK_Livro_Genero
     FOREIGN KEY livro(idGenero) REFERENCES genero(id)
 );
+
+USE livrariajava;
+CREATE TABLE cliente (
+     id int PRIMARY KEY AUTO_INCREMENT,
+     nome varchar(30) NOT NULL,
+     cpf varchar(14) DEFAULT "000.000.000-00",
+     telefone varchar(14) DEFAULT "(xx)00000-0000"
+);

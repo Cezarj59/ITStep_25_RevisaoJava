@@ -2,9 +2,9 @@ package classroom_25.models;
 
 public class Livro {
 
-    private int idLivro;
+    private int id;
     private String titulo;
-    private int IdGenero;
+    private int idGenero;
     private String genero;
     private String autor;
     private double preco;
@@ -13,28 +13,28 @@ public class Livro {
     }
 
     //cadastrar
-    public Livro(String titulo, int IdGenero, String autor, double preco) {
+    public Livro(String titulo, int idGenero, String autor, double preco) {
         this.titulo = titulo;
-        this.IdGenero = IdGenero;
+        this.idGenero = idGenero;
         this.autor = autor;
         this.preco = preco;
     }
 
-    //consultas
+    //consultar
     public Livro(int idLivro, String titulo, String genero, String autor, double preco) {
-        this.idLivro = idLivro;
+        this.id = idLivro;
         this.titulo = titulo;
         this.genero = genero;
         this.autor = autor;
         this.preco = preco;
     }
 
-    public int getIdLivro() {
-        return idLivro;
+    public int getId() {
+        return id;
     }
 
-    public void setIdLivro(int idLivro) {
-        this.idLivro = idLivro;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitulo() {
@@ -46,11 +46,11 @@ public class Livro {
     }
 
     public int getIdGenero() {
-        return IdGenero;
+        return idGenero;
     }
 
-    public void setIdGenero(int IdGenero) {
-        this.IdGenero = IdGenero;
+    public void setIdGenero(int idGenero) {
+        this.idGenero = idGenero;
     }
 
     public String getGenero() {
@@ -75,6 +75,11 @@ public class Livro {
 
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+
+    @Override
+    public String toString() {
+        return "\nID Livro: " + id + "\nTitulo: " + titulo + "\nGenêro: " + genero + "\nAutor: " + autor + "\nPreço: " + preco;
     }
 
 }

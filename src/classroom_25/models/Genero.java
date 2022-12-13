@@ -14,6 +14,9 @@ public class Genero {
         this.nome = nome;
     }
 
+    public Genero() {
+    }
+
     public int getId() {
         return id;
     }
@@ -28,6 +31,11 @@ public class Genero {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return "\nID: " + id + "\nNome: " + nome;
     }
     
     

@@ -26,45 +26,41 @@
 <h3>Requisitos:</h3>
 <ol>
   <li>Usando <b>MVC</b> e um Banco de Dados <b>MySQL</b>, faça um sistema de um Livraria.</li>
-  <li>
+  <li>Que seja possivel cadastrar e consultar:
     <ul>
-    <li> <b></b> </li>    
-    <li> <b></b> </li>
-    <li> <b></b> </li>
-    <li> <b></b> </li>
-    <li> <b></b> </li>
+    <li> <b>Cliente</b> </li>    
+    <li> <b>Livro</b> </li>
+    <li> <b>Gênero</b> </li>
     </ul>  
   </li>
-  <li></li>
-  <li></li>  
-  <li></li>
-  
-<li>
+  <li>Relacione as tabelas no banco de dados.</li>
+
+<li>Deve ser possível consultar por:
     <ul>
-    <li><b></b></li>
-    <li><b></b></li>
-    <li><b></b></li>      
-    <li><b></b></li>
-    <li><b></b></li>
-    <li><b></b></li>      
-    <li><b></b></li>
+    <li> <b>Cliente</b> </li>    
+    <li> <b>Livro</b> </li>
+    <li> <b>Gênero</b> </li>    
     </ul>  
   </li>
-  <li>
+  <li>As Tabelas deverão conter:
     <ul>
-    <li><b></b></li>
-    <li><b></b></li> 
-    <li><b></b></li> 
-    <li><b></b></li>
-    <li><b></b></li>
-    <li><b></b></li>
-    <li><b></b></li>
+    <li><b>Titulo</b></li>
+    <li><b>Gênero</b></li> 
+    <li><b>Autor</b></li> 
+    <li><b>Preço</b></li>
     </ul>  
   </li>
 </ol>
 
 
-<h4>Output ex.</h4> 
+<h4>Output cadastro de Livro:</h4> 
+
+![Screenshot from 2022-12-16 20-13-25](https://user-images.githubusercontent.com/78119622/208203725-6541f9b7-5eea-4287-a1b3-7085e055f909.png)
+
+
+<h4>Output consulta de Livro:</h4> 
+
+![Screenshot from 2022-12-16 20-14-00](https://user-images.githubusercontent.com/78119622/208203735-3a610575-8a3f-46b4-b92b-5b5cf8383340.png)
 
 
 <h4>Tecnologias Utilizadas.</h4>
